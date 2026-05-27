@@ -1,0 +1,12 @@
+[workspace]
+authors = ["K. S. Ernest (iFire) Lee <ernest.lee@chibifire.com>"]
+channels = ["conda-forge"]
+name = "addbiomechanics_env"
+platforms = ["win-64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+python = "3.11.*"
+numpy = ">=2.4.6,<3"

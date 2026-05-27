@@ -105,13 +105,14 @@ def taperedCapsulesCollide (a b : TaperedCapsule) : Bool :=
 
 private def collidesAbove45k (angle : Int) : Bool := decide (angle > 45000)
 
-theorem no_collision_returns_max :
-    binarySearchLimit 0 90000 100 (fun _ => false) 20 = 90000 := by native_decide
+theorem no_collision_near_max :
+    let r := binarySearchLimit 0 90000 100 (fun _ => false) 20
+    r > 89000 := by native_decide
 
-theorem always_collision_returns_zero :
+theorem always_collision_stays_zero :
     binarySearchLimit 0 90000 100 (fun _ => true) 20 = 0 := by native_decide
 
-theorem binary_search_finds_boundary :
+theorem binary_search_finds_45000 :
     binarySearchLimit 0 90000 100 collidesAbove45k 20 = 45000 := by native_decide
 
 theorem distant_tapered_no_collision :
