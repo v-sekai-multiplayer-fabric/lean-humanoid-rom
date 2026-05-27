@@ -10,3 +10,8 @@ version = "0.1.0"
 [dependencies]
 python = "3.11.*"
 numpy = ">=2.4.6,<3"
+pytorch = ">=2.0"
+pillow = ">=12.2.0,<13"
+
+[pypi-dependencies]
+anny = "*"
