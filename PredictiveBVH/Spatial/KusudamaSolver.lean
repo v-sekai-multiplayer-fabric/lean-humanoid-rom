@@ -163,8 +163,21 @@ private def solveFn : SlangFunctionDecl :=
                ]
     body    := solveBody }
 
+-- NOTE: The C++ caller applies a twist-free change-of-basis correction
+-- using Godot's Quaternion API (not expressible in Slang):
+--   rest_to_input     = Quaternion(forward, input_dir)
+--   rest_to_constrained = Quaternion(forward, kusudama_solve(input_dir, ...))
+--   correction = rest_to_constrained * inverse(rest_to_input)
+--   result = correction.xform(input_vector)
+-- This preserves twist by routing both rotations through the rest pose.
+
 def kusudamaSolverModule : SlangShaderModule :=
   { functions := [solveFn] }
+
+-- The IK solver applies the constraint rotation to the ENTIRE downstream
+-- chain, not just the immediate bone. See iterate_ik_3d.h:
+--   Quaternion correction = Quaternion(input_dir, constrained_dir);
+--   for each downstream joint: chain[j] = chain[head] + correction.xform(chain[j] - chain[head]);
 
 def kusudamaSolverSource : String := LeanSlang.emit kusudamaSolverModule
 
