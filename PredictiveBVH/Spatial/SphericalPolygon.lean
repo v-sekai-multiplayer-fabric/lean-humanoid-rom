@@ -44,7 +44,6 @@ def nearestOnArc (p v0 v1 : Vec3) : Vec3 × Int :=
   let proj := projectToGreatCircle p v0 v1
   let projLenSq := dot proj proj
   if projLenSq == 0 then
-    -- Degenerate: p is on the great circle's pole. Use nearest endpoint.
     let s0 := dot p v0
     let s1 := dot p v1
     if s0 ≥ s1 then (v0, s0) else (v1, s1)
@@ -59,36 +58,17 @@ def nearestOnArc (p v0 v1 : Vec3) : Vec3 × Int :=
       let s1 := dot p v1
       if s0 ≥ s1 then (v0, s0) else (v1, s1)
 
-/-- Edge midpoint dot product with p — used as tiebreaker to push the
-    singularity to the point furthest from p (the antipode). -/
-private def edgeMidDot (p v0 v1 : Vec3) : Int :=
-  dot p { x := v0.x + v1.x, y := v0.y + v1.y, z := v0.z + v1.z }
-
 def projectToPoly (p : Vec3) (poly : ConvexPolygon) : Vec3 :=
   let n := poly.vertices.size
   if n == 0 then p
   else
-    -- Seed: nearest vertex (always non-degenerate).
-    let initBest := poly.vertices.foldl (fun (best : Vec3 × Int × Int) v =>
-      let s := dot p v
-      if s > best.2.1 then (v, s, s) else best
-    ) (poly.vertices[0]!, dot p poly.vertices[0]!, dot p poly.vertices[0]!)
-    -- Check each edge. Tiebreak by edge-midpoint proximity to push the
-    -- singularity to the furthest point (antipode of p).
-    let result := (List.range n).foldl (fun (best : Vec3 × Int × Int) i =>
+    let init := nearestOnArc p poly.vertices[0]! poly.vertices[1 % n]!
+    (List.range (n - 1)).foldl (fun (best : Vec3 × Int) idx =>
+      let i := idx + 1
       let j := (i + 1) % n
-      let v0 := poly.vertices[i]!
-      let v1 := poly.vertices[j]!
-      let cand := nearestOnArc p v0 v1
-      let midD := edgeMidDot p v0 v1
-      if cand.2 > best.2.1 then
-        (cand.1, cand.2, midD)
-      else if cand.2 == best.2.1 && midD > best.2.2 then
-        (cand.1, cand.2, midD)
-      else
-        best
-    ) initBest
-    result.1
+      let cand := nearestOnArc p poly.vertices[i]! poly.vertices[j]!
+      if cand.2 > best.2 then cand else best
+    ) init |>.1
 
 -- ── Order-independent polygon construction ──────────────────────────────────
 
@@ -105,7 +85,9 @@ def mkPolygon (vs : Array Vec3) (centroid : Vec3) : ConvexPolygon :=
   let n := vs.size
   if n < 2 then { vertices := vs, normals := #[] }
   else
-    let u : Vec3 := { x := -centroid.y, y := centroid.x, z := 0 }
+    let u : Vec3 :=
+      if centroid.x != 0 || centroid.y != 0 then { x := -centroid.y, y := centroid.x, z := 0 }
+      else { x := centroid.z, y := 0, z := -centroid.x }
     let v := cross centroid u
     let withAngles := vs.map fun p => (atan2_approx (dot p v) (dot p u), p)
     let sorted := withAngles.insertionSort (fun a b => a.1 < b.1)
