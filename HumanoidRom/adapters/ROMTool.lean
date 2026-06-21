@@ -14,8 +14,8 @@
 -- The tool runs ONCE at skeleton import time.
 -- Output is a JSON/resource that EWBIK loads at runtime.
 
-import PredictiveBVH.Primitives.Types
-import PredictiveBVH.Spatial.ROMSampling
+import Shared.Types
+import HumanoidRom.core.ROMSampling
 
 namespace PredictiveBVH.ROMTool
 

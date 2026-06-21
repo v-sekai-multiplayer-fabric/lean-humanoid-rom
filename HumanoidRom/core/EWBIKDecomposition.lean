@@ -4,7 +4,7 @@
 --
 -- EWBIK skeleton decomposition into effector-groups.
 
-import PredictiveBVH.Primitives.Types
+import Shared.Types
 
 namespace PredictiveBVH.EWBIKDecomposition
 

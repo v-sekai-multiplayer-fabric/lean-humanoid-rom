@@ -3,7 +3,7 @@
 -- Source: AddBiomechanics Dataset (CC BY 4.0)
 -- https://addbiomechanics.org/download_data.html
 
-import PredictiveBVH.Primitives.Types
+import Shared.Types
 
 namespace PredictiveBVH.AddBiomechanicsROM
 

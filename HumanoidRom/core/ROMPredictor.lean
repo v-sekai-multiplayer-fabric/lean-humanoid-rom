@@ -13,7 +13,7 @@
 --   3. Python: export tree as Lean code (tools/export_tree_to_lean.py)
 --   4. Lean: evaluate — pure function, O(depth) per query, no external deps
 
-import PredictiveBVH.Primitives.Types
+import Shared.Types
 
 namespace PredictiveBVH.ROMPredictor
 

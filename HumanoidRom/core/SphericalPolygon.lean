@@ -3,7 +3,7 @@
 --
 -- Spherical polygon constraint specification for kusudama joints.
 
-import PredictiveBVH.Primitives.Types
+import Shared.Types
 
 namespace PredictiveBVH.SphericalPolygon
 

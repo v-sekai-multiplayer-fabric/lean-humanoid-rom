@@ -11,8 +11,8 @@
 -- Source: E:\sinew commit 2ee4d31 (tools/extract_anny.py)
 -- All data is self-contained — no Unity/external dependencies.
 
-import PredictiveBVH.Primitives.Types
-import PredictiveBVH.Spatial.AddBiomechanicsROM
+import Shared.Types
+import HumanoidRom.adapters.AddBiomechanicsROM
 
 namespace PredictiveBVH.HumanoidConstraints
 

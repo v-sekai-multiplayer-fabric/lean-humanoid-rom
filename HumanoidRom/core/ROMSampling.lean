@@ -4,7 +4,7 @@
 -- ROM sampling: clinical bounds + ANNY self-intersection → joint limits.
 -- Uses tapered capsules (frustums) for fast collision detection.
 
-import PredictiveBVH.Primitives.Types
+import Shared.Types
 
 namespace PredictiveBVH.ROMSampling
 
