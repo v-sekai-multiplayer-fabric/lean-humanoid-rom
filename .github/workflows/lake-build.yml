@@ -1,0 +1,36 @@
+name: lake build
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+concurrency:
+  group: lake-build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Depends on lean-shared-core + LeanSlang only (no Mathlib), so the Mathlib
+      # cache is NOT fetched — `lake exe cache get` would fail with "unknown
+      # executable cache" since the cache exe ships with Mathlib. LeanSlang is
+      # used as a pure-Lean AST library here (KusudamaShader emits Slang source)
+      # with no exe linking libslang, so the Slang SDK does NOT need vendoring.
+      - name: setup toolchain + production gate (HumanoidRom)
+        uses: leanprover/lean-action@v1
+        with:
+          build-args: "HumanoidRom"
+          test: false
+          lint: false
+
+      # Research-tier ROMTool: built for signal, NOT gating.
+      - name: lake build Research (non-gating)
+        continue-on-error: true
+        run: lake build Research

@@ -1,0 +1,8 @@
+# Lean 4 / Lake build artifacts
+/.lake/
+/build/
+.DS_Store
+
+# Python tooling (HumanoidRom adapters/tools)
+**/__pycache__/
+HumanoidRom/adapters/tools/anny_rom_test.json
