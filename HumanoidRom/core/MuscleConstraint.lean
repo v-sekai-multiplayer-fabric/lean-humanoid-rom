@@ -19,7 +19,7 @@
 -- This module converts between the two representations:
 --   muscle values ↔ kusudama (swing cones + twist range)
 
-import PredictiveBVH.Primitives.Types
+import Shared.Types
 
 namespace PredictiveBVH.MuscleConstraint
 

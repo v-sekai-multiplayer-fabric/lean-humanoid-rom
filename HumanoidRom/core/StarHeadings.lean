@@ -7,7 +7,7 @@
 -- QCP aligns tip headings to target headings, recovering both position
 -- and rotation from the same algorithm.
 
-import PredictiveBVH.Primitives.Types
+import Shared.Types
 
 namespace PredictiveBVH.StarHeadings
 

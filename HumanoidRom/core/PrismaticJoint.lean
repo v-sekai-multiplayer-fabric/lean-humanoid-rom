@@ -15,7 +15,7 @@
 --
 -- This is a scalar optimization — no iteration needed.
 
-import PredictiveBVH.Primitives.Types
+import Shared.Types
 
 namespace PredictiveBVH.PrismaticJoint
 

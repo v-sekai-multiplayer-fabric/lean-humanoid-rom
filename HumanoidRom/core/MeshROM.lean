@@ -6,8 +6,8 @@
 --
 -- The character's own mesh is the ground truth.
 
-import PredictiveBVH.Primitives.Types
-import PredictiveBVH.Spatial.ROMSampling
+import Shared.Types
+import HumanoidRom.core.ROMSampling
 
 namespace PredictiveBVH.MeshROM
 

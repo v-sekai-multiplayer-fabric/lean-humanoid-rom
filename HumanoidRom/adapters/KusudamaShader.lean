@@ -5,7 +5,7 @@
 -- The solver: cone check → polygon contains → gnomonic 2D project.
 -- Open chain: no last-to-first edge.
 
-import PredictiveBVH.Spatial.SphericalPolygon
+import HumanoidRom.core.SphericalPolygon
 
 namespace PredictiveBVH.KusudamaShader
 

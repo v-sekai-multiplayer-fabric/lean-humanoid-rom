@@ -14,9 +14,9 @@
 --   ACCURATE: mesh → BVH → sweep all joints → exact ROM (slow, import-time)
 --   FAST:     mesh → bone lengths → decision tree → predicted ROM (instant)
 
-import PredictiveBVH.Spatial.MeshROM
-import PredictiveBVH.Spatial.ROMSampling
-import PredictiveBVH.Spatial.ROMPredictor
+import HumanoidRom.core.MeshROM
+import HumanoidRom.core.ROMSampling
+import HumanoidRom.core.ROMPredictor
 
 namespace PredictiveBVH.ROMPipeline
 
