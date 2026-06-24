@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "lean-humanoid-rom: Humanoid range-of-motion and IK-constraint hexagon"
+abstract: >
+  Lean 4 formal verification of humanoid range-of-motion (ROM), Kusudama joint
+  constraints, and muscle/prismatic constraints (core). Adapters include parsers
+  for B3D and AddBiomechanics formats, a GPU shader, and Python tooling. Part of
+  the multiplayer-fabric hexagonal architecture; each cluster is independently
+  versioned. See CITATIONS.bib for body-model, biomechanics, and IK references.
+authors:
+  - family-names: Lee
+    given-names: "K. S. Ernest (iFire)"
+    email: ernest.lee@chibifire.com
+    orcid: "https://orcid.org/0000-0003-4570-1436"
+version: 0.1.0-dev.1
+date-released: "2026-06-24"
+license: MIT
+repository-code: "https://github.com/v-sekai-multiplayer-fabric/lean-humanoid-rom"
+keywords:
+  - lean4
+  - formal-verification
+  - humanoid
+  - range-of-motion
+  - ik-constraints
+  - kusudama
+  - biomechanics
