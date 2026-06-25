@@ -6,7 +6,7 @@ abstract: >
   constraints, and muscle/prismatic constraints (core). Adapters include parsers
   for B3D and AddBiomechanics formats, a GPU shader, and Python tooling. Part of
   the multiplayer-fabric hexagonal architecture; each cluster is independently
-  versioned. See CITATIONS.bib for body-model, biomechanics, and IK references.
+  versioned. CITATIONS.bib lists body-model, biomechanics, and IK references.
 authors:
   - family-names: Lee
     given-names: "K. S. Ernest (iFire)"
@@ -24,3 +24,106 @@ keywords:
   - ik-constraints
   - kusudama
   - biomechanics
+
+references:
+
+  # ── Sibling multiplayer-fabric hexagons ──────────────────────────────────────
+
+  - type: software
+    title: "lean-combat-core: Deterministic combat reducer and timed-combo state machine"
+    authors:
+      - family-names: Lee
+        given-names: "K. S. Ernest (iFire)"
+        orcid: "https://orcid.org/0000-0003-4570-1436"
+    year: 2026
+    url: "https://github.com/v-sekai-multiplayer-fabric/lean-combat-core"
+
+  - type: software
+    title: "lean-connection-fsm: Client-server connection lifecycle FSM"
+    authors:
+      - family-names: Lee
+        given-names: "K. S. Ernest (iFire)"
+        orcid: "https://orcid.org/0000-0003-4570-1436"
+    year: 2026
+    url: "https://github.com/v-sekai-multiplayer-fabric/lean-connection-fsm"
+
+  - type: software
+    title: "lean-entity-packet: 100-byte entity wire-packet codec"
+    authors:
+      - family-names: Lee
+        given-names: "K. S. Ernest (iFire)"
+        orcid: "https://orcid.org/0000-0003-4570-1436"
+    year: 2026
+    url: "https://github.com/v-sekai-multiplayer-fabric/lean-entity-packet"
+
+  - type: software
+    title: "lean-fabric-protocol: Fabric SLA and protocol correctness proofs"
+    authors:
+      - family-names: Lee
+        given-names: "K. S. Ernest (iFire)"
+        orcid: "https://orcid.org/0000-0003-4570-1436"
+    year: 2026
+    url: "https://github.com/v-sekai-multiplayer-fabric/lean-fabric-protocol"
+
+  - type: software
+    title: "lean-http3-queue: HTTP/3 push/pop queue atomicity model"
+    authors:
+      - family-names: Lee
+        given-names: "K. S. Ernest (iFire)"
+        orcid: "https://orcid.org/0000-0003-4570-1436"
+    year: 2026
+    url: "https://github.com/v-sekai-multiplayer-fabric/lean-http3-queue"
+
+  - type: software
+    title: "lean-interest-mgmt: Area-of-interest and zone interest management"
+    authors:
+      - family-names: Lee
+        given-names: "K. S. Ernest (iFire)"
+        orcid: "https://orcid.org/0000-0003-4570-1436"
+    year: 2026
+    url: "https://github.com/v-sekai-multiplayer-fabric/lean-interest-mgmt"
+
+  - type: software
+    title: "lean-loot-core: Weighted loot table, RNG, and GPU Slang emitter"
+    authors:
+      - family-names: Lee
+        given-names: "K. S. Ernest (iFire)"
+        orcid: "https://orcid.org/0000-0003-4570-1436"
+    year: 2026
+    url: "https://github.com/v-sekai-multiplayer-fabric/lean-loot-core"
+
+  - type: software
+    title: "lean-progression-core: Player progression, credits, affinity, and arts"
+    authors:
+      - family-names: Lee
+        given-names: "K. S. Ernest (iFire)"
+        orcid: "https://orcid.org/0000-0003-4570-1436"
+    year: 2026
+    url: "https://github.com/v-sekai-multiplayer-fabric/lean-progression-core"
+
+  - type: software
+    title: "lean-rebac-core: Relationship-based access control (ReBAC / NoGod)"
+    authors:
+      - family-names: Lee
+        given-names: "K. S. Ernest (iFire)"
+        orcid: "https://orcid.org/0000-0003-4570-1436"
+    year: 2026
+    url: "https://github.com/v-sekai-multiplayer-fabric/lean-rebac-core"
+
+  - type: software
+    title: "lean-shared-core: Shared primitive types for the multiplayer-fabric hexagons"
+    authors:
+      - family-names: Lee
+        given-names: "K. S. Ernest (iFire)"
+        orcid: "https://orcid.org/0000-0003-4570-1436"
+    year: 2026
+    url: "https://github.com/v-sekai-multiplayer-fabric/lean-shared-core"
+
+  - type: software
+    title: "lean-spatial-oracle: Hilbert broadphase, ghost expansion, BVH, and zone partitioning"
+    authors:
+      - family-names: Lee
+        given-names: "K. S. Ernest (iFire)"
+        orcid: "https://orcid.org/0000-0003-4570-1436"
+    year: 2026
+    url: "https://github.com/v-sekai-multiplayer-fabric/lean-spatial-oracle"
